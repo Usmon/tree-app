@@ -1,6 +1,6 @@
 # Tree application
 
-This project of Tree (drop & down, search, crate, delete, update)
+This project of Tree (drop & down, search, create, delete, update)
 
 ## Technical requirements
 1. PHP 8
