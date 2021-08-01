@@ -4,7 +4,6 @@ services:
   database:
     container_name: database
     image: mysql:8.0
-    command: --default-authentication-plugin=mysql_native_password
     environment:
       - MYSQL_DATABASE=${DB_DATABASE}
       - MYSQL_USER=${DB_USERNAME}
@@ -15,6 +14,7 @@ services:
     volumes:
       - ./docker/database/data:/var/lib/mysql
       - ./docker/database/init.sql:/tmp/init.sql
+
   php-fpm:
     build:
       dockerfile: ./docker/php-fpm/Dockerfile
