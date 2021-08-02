@@ -13,15 +13,13 @@ services:
       - '4306:3306'
     volumes:
       - ./docker/database/data:/var/lib/mysql
-      - ./docker/database/init.sql:/tmp/init.sql
-
   php-fpm:
     build:
       dockerfile: ./docker/php-fpm/Dockerfile
       context: .
     depends_on:
       - database
-    #restart: on-failure:10
+    restart: on-failure:10
     command: bash -c "composer install &&
              php artisan key:generate &&
              php artisan migrate:fresh --seed &&
